@@ -24,6 +24,20 @@ var toDoItems: [[String: Any]] {
     }
 }
 
+var des: [[String: Any]] {
+    set {
+        UserDefaults.standard.set(newValue, forKey: "toDoDataKey")
+        UserDefaults.standard.synchronize()
+    }
+    get {
+        if let array2 = UserDefaults.standard.array(forKey: "toDoDataKey") as? [[String: Any]]  {
+            return array2
+        } else {
+            return []
+        }
+    }
+}
+
 func addItem(nameItem : String, isCompleted : Bool = false)  {
     toDoItems.append(["Name": nameItem, "isCompleted": isCompleted])
     setBadge()

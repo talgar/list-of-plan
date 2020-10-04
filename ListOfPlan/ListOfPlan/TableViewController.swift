@@ -10,6 +10,14 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    @IBOutlet weak var textViewDescription: UITextView!
+    
+    @IBAction func saveDescriptionBut(_ sender: Any) {
+        textViewDescription.
+    }
+    
+    
+    
     
     @IBAction func editAction(_ sender: Any) {
         tableView.setEditing(!tableView.isEditing, animated: true)
@@ -24,11 +32,11 @@ class TableViewController: UITableViewController {
       
         alertController.addTextField { (textField) in
             textField.placeholder = "New item name"
-            alertController.addTextField { (textField) in
-                textField.placeholder = "Description"
-            }
         }
         
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Description"
+        }
         
         let alertAction1 = UIAlertAction(title: "Cancel", style: .destructive) { (alert) in
             
@@ -46,6 +54,9 @@ class TableViewController: UITableViewController {
         alertController.addAction(alertAction2)
         present(alertController, animated: true, completion: nil)
     }
+    
+    
+    
     
        
     override func viewDidLoad() {
@@ -97,7 +108,9 @@ class TableViewController: UITableViewController {
         return cell
     }
     
-
+    
+    
+    
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
